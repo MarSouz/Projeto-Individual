@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Barlow", sans-serif;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+}
+
+h5 {
+    font-size: 40px;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid #4169e1;
+    background-color: white;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    box-shadow: 0 0 10px #4169e1;
+    padding: 0 20px;
+}
+
+
+
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: auto;
+}
+
+.navbarb {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: auto;
+}
+
+.navbar li {
+    margin-right: 20px;
+}
+
+.navbar li:last-child {
+    margin-right: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+
+.navbar a:hover {
+    color: #4169e1;
+}
+
+.logo {
+    width: 80px; 
+    height: auto;
+    margin-right: 20px;
+    padding: 0%;
+}
+
+.titulo {
+    color: #4169e1;
+    width: fit-content;
+    font-weight: 500;
+  }
+
+.banner {
+    display: flex;
+    align-items: flex-end;
+    padding: 115px 0px 50px 0px;
+    font-size: 70px;
+}
+
+
+.letra {
+    font-size: 70px;
+    font-weight: bold;
+    color: #4169e1  ;
+    margin-bottom: 20px;
+}
+
+.bem-vindo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.sobre,
+.container {
+    width: 90%;
+    margin: 1 auto;
+}
+
+
+.servicos {
+    background-color: #4169e1;
+    color: white;
+    padding: 50px 0px 50px 0px;
+    height: fit-content;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-servicos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    color:black;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(230, 211, 211, 0.418);
+    height: 70%;
+    width: 50%;
+    padding: 40px;
+    margin: 0 20px;
+    transition: transform 0.3s;
+}
+.quem {
+    background-color: #4169e1;
+    color: white;
+    padding: 50px 0px 50px 0px;
+    height: fit-content;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-quem {
+    display: flex;
+    align-items:left;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(230, 211, 211, 0.418);
+    height: 70%;
+    width: 50%;
+    padding: 40px;
+    margin: 0 20px;
+    transition: transform 0.3s;
+}
+
+.card-quem-eu{
+display: flex;
+flex-direction: column;
+align-items: center;
+
+padding: 30px;
+
+}
+
+.letra-servicos {
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+.card {
+    background-color: #4169e1;
+    color: white;
+    padding: 0px 20px 20px 30px;
+    margin: 10px 0px 190px 0px;
+    border-radius: 10px;
+}
+
+.card h4 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* Estilos para a seção "Por que Brain Sport?" */
+#por-que-Brain-Sport {
+    background-color: #fafafa;
+    color: black;
+    padding: 190px 0px 200px 0px;
+    text-align: center;
+    flex-direction: column;
+}
+
+#por-que-Brain-Sport .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#por-que-Brain-Sport .card {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #4169e1;
+    padding: 40px;
+    margin: 0 20px;
+    transition: transform 0.3s;
+}
+
+#por-que-Brain-Sport .card:hover {
+    transform: translateY(-5px);
+}
+
+#por-que-Brain-Sport .card h4 {
+    font-size: 24px;
+    color:black;
+    margin-bottom: 20px;
+}
+
+#por-que-Brain-Sport .card p {
+    color: #777;
+    line-height: 1.4;
+}
+
+/* Estilos para a seção "Sobre" */
+#sobre {
+    background-color: black;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#sobre h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+#sobre p {
+    line-height: 1.6;
+}
+
+#sobre .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.equipe {
+    display: flex;
+    justify-content: center;
+
+}
+
+.equipe2 {
+    width: 80%;
+    background-color: black;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 15px;
+    margin-bottom: 140px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.equipe3 {
+    width: 50vw;
+}
+
+.body-foto {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-eu{
+    width: 300px;
+    height: 500px;
+    border-radius: 15%;
+    object-fit: cover;
+}
+
+.espaco {
+    margin-bottom: 100px;
+}
+
+/* Estilo para a sessão "footer" */
+
+
+  footer {
+    width: 100%;
+    color: black;
+  }
+  
+  #footer_content {
+    background-color: white;
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 3.5rem;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  #footer_contacts h1 {
+    margin-bottom: 0.75rem;
+  }
+  
+  #footer_social_media {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  #footer_social_media .footer-link {
+    height: 2.5rem;
+    width: 2.5rem;
+    color:  #f5f5f5;
+    border-radius: 50%;
+  }
+  
+  #footer_social_media .footer-link:hover {
+    opacity: 0.8;
+  }
+  
+  #footer_social_media .footer-link i {
+    font-size: 1.25rem;
+  }
+  
+  .footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 0.75rem;
+    list-style: none;
+  }
+  
+  .footer-list .footer-link {
+    color: #a8a29e;
+  }
+  
+  .footer-list .footer-link:hover {
+    color: #4169e1;
+  }
+  
+  .footer_subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer_subscribe p {
+    color: #a8a29e;
+  }
+  
+  #input_group {
+    display: flex;
+    align-items: center;
+    background-color: #0e0c0c;
+    border-radius: 4px;
+  
+  }
+  
+  #input_group input {
+    all: unset;
+    padding: 0.75rem;
+    width: 100%;
+  }
+  
+  #input_group button {
+    background-color: #4169e1;
+    border: none;
+    color:  #f5f5f5;
+    padding: 0px 1.25rem;
+    font-size: 1.125rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+  
+  #input_group button:rover {
+    opacity: 0.8;
+  }
+  
+  #footer_copyright {
+    display: flex;
+    justify-content: center;
+    background-color: #0e0c0c;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #footer_contente {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  
+  }
+  
+  @media screen and (max-width: 426px) {
+    #footer_contente {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 3rem 2rem;
+    }
+  }
+  
+  .img-footer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
