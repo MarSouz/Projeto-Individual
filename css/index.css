@@ -97,10 +97,11 @@ h5 {
 
 
 .letra {
-    font-size: 70px;
+    font-size: 100px;
     font-weight: bold;
     color: #4169e1  ;
     margin-bottom: 20px;
+    margin-left: 200px;
 }
 
 .bem-vindo {
@@ -153,9 +154,13 @@ h5 {
     color: white;
     padding: 50px 0px 50px 0px;
     height: fit-content;
+  
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
+    width: 80vw;
+    margin: 80px auto;
+    border-radius: 10px
 }
 
 .card-quem {
@@ -169,7 +174,7 @@ h5 {
     box-shadow: 0 0 20px rgba(230, 211, 211, 0.418);
     height: 70%;
     width: 50%;
-    padding: 40px;
+    padding: 00px;
     margin: 0 20px;
     transition: transform 0.3s;
 }
@@ -321,12 +326,13 @@ padding: 30px;
     margin-bottom: 100px;
 }
 
-/* Estilo para a sessão "footer" */
+/* Estilo para o "footer" */
 
 
   footer {
     width: 100%;
     color: black;
+    box-shadow: 0 0 10px #4169e1;
   }
   
   #footer_content {
