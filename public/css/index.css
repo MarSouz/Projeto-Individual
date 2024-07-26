@@ -37,9 +37,19 @@ h5 {
     align-items: center;
     box-shadow: 0 0 10px #4169e1;
     padding: 0 20px;
+    animation: cima 3s;
 }
 
-
+@keyframes cima {
+  0%{
+    opacity: 0;
+    transform: translateY(-90px)
+  }
+  100%{
+    opacity: 1;
+  transform: translateY(0);
+  }
+} 
 
 .navbar {
     list-style: none;
@@ -102,7 +112,40 @@ h5 {
     color: #4169e1  ;
     margin-bottom: 20px;
     margin-left: 200px;
+  animation: esquerda 3s;
+  }
+
+@keyframes esquerda {
+  0%{
+    opacity: 0;
+    transform: translateX(-800px)
+  }
+  100%{
+    opacity: 1;
+  transform: translateX(0);
+  }
+} 
+
+.svg {
+  width: 500px;
+  animation: direita 3s;
+  
 }
+
+html{
+  overflow-x: hidden;
+}
+
+@keyframes direita {
+  0%{
+    opacity: 0;
+    transform: translateX(650px);
+  }
+  100%{
+    opacity: 1;
+  transform: translateX(0);
+  }
+} 
 
 .bem-vindo {
     display: flex;
@@ -132,6 +175,7 @@ h5 {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card-servicos {
@@ -149,6 +193,10 @@ h5 {
     margin: 0 20px;
     transition: transform 0.3s;
 }
+.card-servicos-a {
+  display: flex;
+}
+
 .quem {
     background-color: #4169e1;
     color: white;
