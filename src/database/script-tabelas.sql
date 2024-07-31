@@ -21,12 +21,13 @@ CREATE TABLE aviso (
 CREATE TABLE quiz(
 	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
 	pontuacao FLOAT,
+    tempo INT,
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
     );
     
 INSERT INTO usuario VALUES
-	(DEFAULT, "Marcelo", "2005-02-22", "marcelo@gmail.com", "elersonviado");    
+	(DEFAULT, "Marcelo", "2005-02-22", "marcelo@gmail.com", "1234");    
     
 INSERT INTO  quiz(pontuacao, fk_usuario) VALUES
 	(3, 1);
@@ -51,3 +52,14 @@ SELECT
     SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) >= 65 THEN 1 ELSE 0 END) AS Maior65
 FROM 
     usuario;
+    
+    SELECT 
+    u.nome, 
+    MIN(q.tempo) AS primeiro_tempo
+FROM 
+    usuario u
+JOIN 
+    quiz q ON u.id = q.fk_usuario
+GROUP BY 
+    u.id, u.nome
+    limit 10;

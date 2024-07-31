@@ -206,7 +206,10 @@ width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: ;
+}
+
+.servicos-espaco{
+  margin-top: 50px;
 }
 
 .card-servicos-primeiro {

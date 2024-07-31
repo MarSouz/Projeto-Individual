@@ -32,7 +32,7 @@
 
     <div class="janela">
         <div class="header-left">
-            <img src="../imgs/Logo.png" alt="Logo" class="logo">
+            <img src="./css/imgs/Logo.png" alt="Logo" class="logo">
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -115,6 +115,7 @@
                 </div>
                 <canvas class="estilo-grafico" id="myChartCanvas"></canvas>
                 <canvas class="estilo-grafico" id="myChartIdade"></canvas>
+                <div id="percent"></div>
             </div>
             <div id="graficos">
             </div>
@@ -235,9 +236,9 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-            
+
     }
-    
+
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
@@ -318,13 +319,12 @@
         let labels = ["Menor de 18", "De 18 a 24", "De 25 a 34", "De 35 a 44", "De 45 a 54", "De 55 a 64", "Maior de 65"];
 
         // Criando estrutura para plotar gráfico - dados
+
         let dados = {
             labels: labels,
             datasets: [{
                 label: 'Idade',
                 data: [0, 0, 0, 0, 0, 0, 0],
-                fill: false,
-                borderColor: 'white',
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(255, 159, 64, 0.2)',
@@ -334,10 +334,11 @@
                     'rgba(153, 102, 255, 0.2)',
                     'rgba(201, 203, 207, 0.2)'
                 ],
-
-                tension: 0.1
+                hoverOffset: 4,
             }]
         };
+
+
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
@@ -346,6 +347,7 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
 
         var registro = resposta[0];
+
         dados.datasets[0].data[0] = resposta.zero;
         dados.datasets[0].data[1] = resposta.um;
         dados.datasets[0].data[2] = resposta.dois;
@@ -362,9 +364,47 @@
         console.log(dados.datasets)
         console.log('----------------------------------------------')
 
+        var sum = 0;
+        var numbers = [0,0,0,0,0,0,0]  
+        
+        numbers[0] = Number(resposta.zero);
+        numbers[1] = Number(resposta.um);
+        numbers[2] = Number(resposta.dois);
+        numbers[3] = Number(resposta.tres);
+        numbers[4] = Number(resposta.quatro);
+        numbers[5] = Number(resposta.cinco);
+        numbers[6] = Number(resposta.seis);
+
+        
+
+        for (var i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        
+
+        console.log("SOMA DAS IDADES");
+        console.log(sum)
+        let menor18 = 100 / sum * resposta.zero
+        let m18a24 = 100 / sum * resposta.um
+        let m25a34 = 100 / sum * resposta.dois
+        let m35a44 = 100 / sum * resposta.tres
+        let m45a54 = 100 / sum * resposta.quatro
+        let m55a64 = 100 / sum * resposta.cinco
+        let maior65 = 100 / sum * resposta.seis
+
+        console.log(menor18)
+
+percent.innerHTML = `Menor de 18 anos = ${menor18}%<br>
+De 18 a 25 idade = ${m18a24}%<br> 
+De 25 a 34 idade = ${m25a34}%<br>
+De 35 a 44 idade = ${m35a44}%<br>
+De 45 a 54 idade = ${m45a54}%<br>
+De 55 a 64 idade = ${m55a64}%<br>
+Maior de 54 anos = ${maior65}%<br>
+`
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'bar',
+            type: 'pie',
             data: dados,
         };
 
