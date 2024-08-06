@@ -27,4 +27,8 @@ router.get("/obter/tempo", function (req, res) {
     medidaController.obterTempo(req, res);
 });
 
+router.get("/obter/atleta", function (req, res) {
+    medidaController.obterAtleta(req, res);
+});
+
 module.exports = router;

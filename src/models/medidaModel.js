@@ -1,15 +1,15 @@
 var database = require("../database/config");
 
-function cadastrarPontos(pontos, id, tempo) {
+function cadastrarPontos(pontos, id, tempo,) {
 
-    var instrucaoSql = `insert into quiz(pontuacao, fk_usuario, tempo) values
-	(${id}, ${pontos}, ${tempo})`;
+    var instrucaoSql = `insert into quiz(pontuacao, fk_usuario, tempo, atleta) values
+	(${id}, ${pontos}, ${tempo}, ${atleta})`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-// Cadastra os pontos do quizz
+// Obter os pontos do quizz
 
 function obterDados() {
 
@@ -27,7 +27,7 @@ function obterDados() {
     return database.executar(instrucaoSql);
 }
 
-//cadastra a idade dos usuário
+//Obter a idade dos usuário
 
 function obterIdade() {
 
@@ -46,7 +46,7 @@ FROM
     return database.executar(instrucaoSql);
 }
 
-// Cadastrar o tempo
+//Obter o tempo
 
 function obterTempo() {
 
@@ -65,9 +65,23 @@ GROUP BY
     return database.executar(instrucaoSql);
 }
 
+//Obter respostas atleta
+
+function obterAtleta() {
+
+    var instrucaoSql = `SELECT nome, atleta
+FROM usuario;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
 module.exports = {
     cadastrarPontos,
     obterDados,
     obterIdade, 
-    obterTempo
+    obterTempo,
+    obterAtleta
 }

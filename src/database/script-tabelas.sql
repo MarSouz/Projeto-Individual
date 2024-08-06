@@ -6,8 +6,10 @@ CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
     dtNasc DATE,
+    atleta CHAR(3),
 	email VARCHAR(50),
-	senha VARCHAR(50)
+	senha VARCHAR(50),
+    CONSTRAINT check_atletas CHECK (atleta = 'Sim' OR atleta = 'Nao')
 );
 
 CREATE TABLE aviso (
@@ -27,7 +29,7 @@ CREATE TABLE quiz(
     );
     
 INSERT INTO usuario VALUES
-	(DEFAULT, "Marcelo", "2005-02-22", "marcelo@gmail.com", "1234");    
+	(DEFAULT, "Marcelo", "2005-02-22", "Sim", "marcelo@gmail.com", "1234");    
     
 INSERT INTO  quiz(pontuacao, fk_usuario) VALUES
 	(3, 1);
@@ -63,3 +65,6 @@ JOIN
 GROUP BY 
     u.id, u.nome
     limit 10;
+
+SELECT nome, atleta
+FROM usuario;
