@@ -27,6 +27,10 @@ router.get("/obter/tempo", function (req, res) {
     medidaController.obterTempo(req, res);
 });
 
+router.post("/cadastrar/atleta", function (req, res) {
+    medidaController.cadastrarAtleta(req, res);
+});
+
 router.get("/obter/atleta", function (req, res) {
     medidaController.obterAtleta(req, res);
 });

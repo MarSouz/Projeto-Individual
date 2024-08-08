@@ -34,6 +34,8 @@
 
 </html>
 <script>
+  // Seleciona os elementos da página
+
   const $startGameButton = document.querySelector(".start-quiz")
   const $nextQuestionButton = document.querySelector(".next-question")
   const $questionsContainer = document.querySelector(".questions-container")
@@ -44,8 +46,12 @@
   let currentQuestionIndex = 0
   let totalCorrect = 0
 
+  // Adiciona eventos de clique aos
+
   $startGameButton.addEventListener("click", startGame)
   $nextQuestionButton.addEventListener("click", displayNextQuestion)
+
+  // Inicia o jogo
 
   function startGame() {
     $startGameButton.classList.add("hide")
@@ -53,27 +59,38 @@
     displayNextQuestion()
   }
 
-  function displayNextQuestion() {
-    resetState()
+  // Exibe a próxima pergunta
 
+  function displayNextQuestion() {
+    // Reseta as perguntas
+    resetState()
+    // Verifica se as perguntas foram respondidas
     if (questions.length === currentQuestionIndex) {
+      // Finaliza o jogo se as perguntas foram respondida
       return finishGame()
     }
-
+    // Cria os botões de resposta
     $questionText.textContent = questions[currentQuestionIndex].question
     questions[currentQuestionIndex].answers.forEach(answer => {
       const newAsnwer = document.createElement("button")
       newAsnwer.classList.add("button", "answer")
       newAsnwer.textContent = answer.text
+
+      // Se a resposta for correta, adiciona um atributo de dados
+
       if (answer.correct) {
         newAsnwer.dataset.correct = answer.correct
       }
+      // Adiciona o botão de resposta ao container de respostas
+
       $answersContainer.appendChild(newAsnwer)
+
+      // Adiciona um evento de clique ao botão de resposta
 
       newAsnwer.addEventListener("click", selectAnswer)
     })
   }
-
+  // Função para resetar as questões do jog
   function resetState() {
     while ($answersContainer.firstChild) {
       $answersContainer.removeChild($answersContainer.firstChild)
@@ -83,8 +100,12 @@
     $nextQuestionButton.classList.add("hide")
   }
 
+  // Função para tratar a seleção de uma resposta
+
   function selectAnswer(event) {
     const answerClicked = event.target
+
+    // Verifica se a resposta selecionada está correta e atualiza o total de acertos
 
     if (answerClicked.dataset.correct) {
       document.body.classList.add("correct")
@@ -92,6 +113,8 @@
     } else {
       document.body.classList.add("incorrect")
     }
+
+    // Desabilita todos os botões de resposta após uma escolha
 
     document.querySelectorAll(".answer").forEach(button => {
       button.disabled = true
@@ -103,15 +126,25 @@
       }
     })
 
+    // Exibe o botão de próxima pergunta
+
     $nextQuestionButton.classList.remove("hide")
+
+    // Incrementa o índice da pergunta atual
+
     currentQuestionIndex++
   }
+
+  // Função para finalizar o jogo
 
   function finishGame() {
     const totalQuestions = questions.length
     const performance = Math.floor(totalCorrect * 100 / totalQuestions)
 
+
     let message = ""
+
+    // Dependendo do desempenho do jogador aparece uma das mensagem 
 
     switch (true) {
       case (performance >= 90):
@@ -126,7 +159,7 @@
       default:
         message = "Pode melhorar :("
     }
-
+    // Exibe a mensagem final com o resultado do jogo
     $questionsContainer.innerHTML =
       `
     <p class="final-message">
@@ -139,28 +172,30 @@
     </button>
   </a>
   `
-  finalizar()
+    finalizar()
   }
-
+  // Função para finalizar e enviar os dados do jogo
   function finalizar() {
-        var pontos = totalCorrect
+    var pontos = totalCorrect
 
-        stopTimer()
-        var tempo = Number(contadorValue);
-        fetch("/medidas/cadastrar/pontos", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              pontosServer: pontos,
-              idServer: sessionStorage.ID_USUARIO,
-              tempoServer: tempo
-            })
-        })
-        .then(function (resposta) {
+    stopTimer()
+    var tempo = Number(contadorValue);
+    // Envia os dados do jogo para o Banco de dados
+    fetch("/medidas/cadastrar/pontos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pontosServer: pontos,
+        idServer: sessionStorage.ID_USUARIO,
+        tempoServer: tempo
+      })
+    })
+      .then(function (resposta) {
         console.log("resposta: ", resposta);
 
+        // Redireciona para a dashboard após enviar os dados
         if (resposta.ok) {
           setTimeout(() => {
             window.location = "dashboard.html";
@@ -169,9 +204,9 @@
           alert('Erro');
         }
       })
-    }
+  }
 
-
+  // Array com as perguntas e respostas
   const questions = [
     {
       question: "Qual a equipe que mais venceu campeonato da MLB?",
@@ -236,21 +271,21 @@
     },
   ]
 
-// Contador de tempo
+  // Contador de tempo
 
   let intervalId;
-    let contadorValue;
-    const startTimer = () => {
-        intervalId = setInterval(() => {
-            const currentTime = +timer.innerHTML;
-            timer.innerHTML = currentTime + 1;
-        }, 1000);
-    };
-    startTimer();
-    const stopTimer = () => {
-        clearInterval(intervalId);
-        contadorValue = +timer.innerHTML;
-        alert(contadorValue);
-    };
+  let contadorValue;
+  const startTimer = () => {
+    intervalId = setInterval(() => {
+      const currentTime = +timer.innerHTML;
+      timer.innerHTML = currentTime + 1;
+    }, 1000);
+  };
+  startTimer();
+  const stopTimer = () => {
+    clearInterval(intervalId);
+    contadorValue = +timer.innerHTML;
+    alert(contadorValue);
+  };
 
 </script>
