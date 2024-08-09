@@ -63,14 +63,6 @@
             <input id="dtNasc_input" type="date" placeholder="Sua data de Nascimento" />
           </div>
           <div class="campo">
-            <span>Você pratica esporte?</span>
-            <select id="atleta_sel">
-              <option selected disabled></option>
-              <option value="Sim">Sim</option>
-              <option value="Nao">Não</option>
-            </select>
-          </div>
-          <div class="campo">
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
           </div>
@@ -110,7 +102,6 @@
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var dtNascVar = dtNasc_input.value;
-    var atletaVar = atleta_sel.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
@@ -118,7 +109,6 @@
       nomeVar == "" ||
       emailVar == "" ||
       dtNascVar == "" ||
-      atletaVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
@@ -145,7 +135,6 @@
         emailServer: emailVar,
         senhaServer: senhaVar,
         dtNascServer: dtNascVar,
-        atletaServer: atletaVar
       }),
     })
       .then(function (resposta) {

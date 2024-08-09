@@ -64,7 +64,6 @@ JOIN
     quiz q ON u.id = q.fk_usuario
 GROUP BY 
     u.id, u.nome
-    limit 10;
-
-SELECT nome, atleta
-FROM usuario;
+ORDER BY 
+    primeiro_tempo ASC
+LIMIT 10;

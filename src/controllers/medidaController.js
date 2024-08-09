@@ -5,9 +5,8 @@ function cadastrarPontos(req, res) {
 var id = req.body.idServer
 var pontos = req.body.pontosServer
 var tempo = req.body.tempoServer
-var atleta = req.body.atletaServer
 
-    medidaModel.cadastrarPontos(id, pontos, tempo, atleta).then(function (resultado) {
+    medidaModel.cadastrarPontos(id, pontos, tempo).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -83,26 +82,10 @@ function obterTempo(req, res) {
     });
 }
 
-function obterAtleta(req, res) {
-
-    medidaModel.obterAtleta().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
-
 
 module.exports = {
     cadastrarPontos,
     obterDados,
     obterIdade,
     obterTempo,
-    obterAtleta
 }
