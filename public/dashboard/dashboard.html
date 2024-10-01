@@ -32,7 +32,7 @@
 
     <div class="janela">
         <div class="header-left">
-            <img src="./css/imgs/Logo.png" alt="Logo" class="logo">
+            <img src="../css/imgs/Logo.png" alt="Logo" class="logo">
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -365,8 +365,8 @@
         console.log('----------------------------------------------')
 
         var sum = 0;
-        var numbers = [0,0,0,0,0,0,0]  
-        
+        var numbers = [0, 0, 0, 0, 0, 0, 0]
+
         numbers[0] = Number(resposta.zero);
         numbers[1] = Number(resposta.um);
         numbers[2] = Number(resposta.dois);
@@ -375,12 +375,12 @@
         numbers[5] = Number(resposta.cinco);
         numbers[6] = Number(resposta.seis);
 
-        
+
 
         for (var i = 0; i < numbers.length; i++) {
             sum += numbers[i];
         }
-        
+
 
         console.log("SOMA DAS IDADES");
         console.log(sum)
@@ -394,7 +394,7 @@
 
         console.log(menor18)
 
-percent.innerHTML = `Menor de 18 anos = ${menor18}%<br>
+        percent.innerHTML = `Menor de 18 anos = ${menor18}%<br>
 De 18 a 25 idade = ${m18a24}%<br> 
 De 25 a 34 idade = ${m25a34}%<br>
 De 35 a 44 idade = ${m35a44}%<br>

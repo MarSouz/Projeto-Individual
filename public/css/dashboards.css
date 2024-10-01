@@ -127,7 +127,7 @@ body {
   background-color: #161618;
   height: calc(100vh - 60px);
   overflow: auto;
-  padding-top: 60px;
+  padding-top: 52px;
 }
 
 .area-parametros-alerta {

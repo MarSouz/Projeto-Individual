@@ -32,15 +32,19 @@ function obterDados() {
 function obterIdade() {
 
     var instrucaoSql = `SELECT 
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) < 18 THEN 1 ELSE 0 END) AS Menor18,
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) BETWEEN 18 AND 24 THEN 1 ELSE 0 END) AS de18a24,
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) BETWEEN 25 AND 34 THEN 1 ELSE 0 END) AS de25a34,
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) BETWEEN 35 AND 44 THEN 1 ELSE 0 END) AS de35a44,
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) BETWEEN 45 AND 54 THEN 1 ELSE 0 END) AS de45a54,
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) BETWEEN 55 AND 64 THEN 1 ELSE 0 END) AS de55a64,
-    SUM(CASE WHEN FLOOR(DATEDIFF(CURRENT_DATE, dtNasc) / 365) >= 65 THEN 1 ELSE 0 END) AS Maior65
-FROM 
-    usuario;`;
+    SUM(CASE WHEN idade < 18 THEN 1 ELSE 0 END) AS Menor18,
+    SUM(CASE WHEN idade BETWEEN 18 AND 24 THEN 1 ELSE 0 END) AS de18a24,
+    SUM(CASE WHEN idade BETWEEN 25 AND 34 THEN 1 ELSE 0 END) AS de25a34,
+    SUM(CASE WHEN idade BETWEEN 35 AND 44 THEN 1 ELSE 0 END) AS de35a44,
+    SUM(CASE WHEN idade BETWEEN 45 AND 54 THEN 1 ELSE 0 END) AS de45a54,
+    SUM(CASE WHEN idade BETWEEN 55 AND 64 THEN 1 ELSE 0 END) AS de55a64,
+    SUM(CASE WHEN idade >= 65 THEN 1 ELSE 0 END) AS Maior65
+FROM (
+    SELECT 
+        YEAR(CURRENT_DATE) - YEAR(dtNasc) AS idade
+    FROM 
+        usuario
+) AS idades;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -73,7 +77,7 @@ GROUP BY
 module.exports = {
     cadastrarPontos,
     obterDados,
-    obterIdade, 
+    obterIdade,
     obterTempo,
-    
+
 }
